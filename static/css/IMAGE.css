@@ -156,11 +156,27 @@ select#translateLanguageDropdown {
     outline: none;
     transition: border-color 0.3s;
     cursor: pointer;
+    width: 100%; /* Lebar dropdown 100% dari lebar kontainer */
+    max-width: 200px; /* Atur lebar maksimum jika diperlukan */
 }
 
+/* Style untuk hover tetap sama */
 select#detectLanguageDropdown:hover,
 select#translateLanguageDropdown:hover {
     border-color: #478ac9; /* Change border color on hover */
+}
+
+.video-container {
+  position: relative;
+  width: 100%; /* Sesuaikan dengan lebar yang diinginkan */
+  max-width: 800px; /* Atur lebar maksimum jika diperlukan */
+  margin: 0 auto; /* Menengahkan kontainer */
+}
+
+#my-camera {
+  width: 100%; /* Lebar video menjadi 100% dari lebar kontainer */
+  height: auto; /* Menjaga rasio aspek video */
+  display: block; /* Menghindari margin bawah */
 }
 
 /* Style for the table headers */

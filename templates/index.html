@@ -14,8 +14,28 @@
     </header>
 
     <div class="video-container">
-        <img id="video_feed" src="{{ url_for('video_feed') }}">
+        <video id="my-camera"></video>
     </div>
+
+    <script>
+        const preview = document.getElementById('my-camera');
+
+        navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: {
+                width: 400,
+                height: 400
+            }
+        })
+        
+        .then(stream => {
+        preview.srcObject = stream;
+        preview.play();
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    </script>
 
     <div class="output-container">
         <table id="translation-table">
@@ -35,7 +55,7 @@
     </div>
 
     
-    <script>
+    <!-- <script>
         // Function to update the text content
         function updateTextContent(text) {
             // Split the text into an array of lines
@@ -103,6 +123,6 @@
         $(document).ready(function () {
             updateContent();
         });
-    </script>
+    </script> -->
 </body>
 </html>

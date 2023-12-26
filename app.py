@@ -1,17 +1,14 @@
-# app.py
 import cv2
 import easyocr
-from flask import Flask, render_template, Response, jsonify, request
+import base64
+import numpy as np
+from flask import Flask, render_template, jsonify, request
 from deep_translator import GoogleTranslator
-import atexit
 
 app = Flask(__name__)
 reader = easyocr.Reader(['id', 'en'], gpu=True)
-latest_frame = None  # Global variable to store the latest frame
-cap = cv2.VideoCapture(0)  # Initialize video capture outside the function
-
-# Ensure that the video capture is released when the application exits
-atexit.register(lambda: cap.release())
+global_image_data = None
+global_text_list = None
 
 def draw_boxes(image, result):
     for detection in result:
@@ -20,28 +17,6 @@ def draw_boxes(image, result):
         cv2.rectangle(image, (bbox[0][0], bbox[0][1]), (bbox[2][0], bbox[2][1]), (0, 255, 0), 2)
         cv2.putText(image, text, (bbox[0][0], bbox[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     return image
-
-def gen_frames():
-    global latest_frame  # Use the global variable
-    while True:
-        success, frame = cap.read()
-        if not success:
-            break
-
-        try:
-            result = reader.readtext(frame)
-            text = [detection[1] for detection in result]
-            frame = draw_boxes(frame, result)
-            latest_frame = frame  # Update the global variable with the latest frame
-        except Exception as e:
-            print(f"Error processing frame: {str(e)}")
-            continue
-
-        ret, buffer = cv2.imencode('.jpg', frame)
-        frame = buffer.tobytes()
-
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 @app.route('/')
 def index():
@@ -59,28 +34,51 @@ def text():
 def about():
     return render_template('ABOUT-US.html')
 
-@app.route('/video_feed')
-def video_feed():
-    return Response(gen_frames(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/process_image', methods=['POST'])
+def process_image():
+    try:
+        # Mendapatkan data gambar dari payload JSON
+        data = request.get_json()
+        image_data = data.get('image_data', '')
 
-@app.route('/get_text')
+        # Menyimpan image_data sebagai variabel global
+        global global_image_data
+        global_image_data = image_data
+
+        # Melakukan dekode base64 dan membaca gambar dengan OpenCV
+        decoded_image = base64.b64decode(global_image_data.split(',')[1])
+        nparr = np.frombuffer(decoded_image, np.uint8)
+        frame = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
+        # Melakukan pengolahan gambar dan mendapatkan teks
+        result = reader.readtext(frame)
+        text_list = [detection[1] for detection in result]
+        frame = draw_boxes(frame, result)
+
+        global global_text_list
+        global_text_list = text_list
+
+        # Memberikan respons ke klien
+        response_data = {'status': 'success', 'message': 'Image processed successfully'}
+        return jsonify(response_data)
+    except Exception as e:
+        # Menangani kesalahan jika terjadi
+        print(f"Error processing image: {str(e)}")
+        response_data = {'status': 'error', 'message': 'Error processing image'}
+        return jsonify(response_data)
+
+@app.route('/get_text', methods=['GET'])
 def get_text():
-    global latest_frame  # Use the global variable
-    while True:
-        success, frame = cap.read()
-        if not success:
-            break
+    try:
+        global global_text_list
+        text_list = global_text_list
 
-        try:
-            result = reader.readtext(frame)
-            text_list = [detection[1] for detection in result]
-            frame = draw_boxes(frame, result)
-            latest_frame = frame  # Update the global variable with the latest frame
-            return jsonify('\n'.join(text_list))
-        except Exception as e:
-            print(f"Error processing frame: {str(e)}")
-            return jsonify('')
+        # Memberikan respons ke klien dengan teks hasil pengolahan
+        return jsonify('\n'.join(text_list))
+    except Exception as e:
+        # Menangani kesalahan jika terjadi
+        print(f"Error processing text: {str(e)}")
+        return jsonify('')
 
 @app.route('/translate_text', methods=['POST'])
 def translate_text():
