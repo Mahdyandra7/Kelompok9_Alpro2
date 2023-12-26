@@ -1,0 +1,442 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 502px;
+}.u-section-2 .u-sheet-1 {
+  min-height: 501px;
+}
+
+.u-section-2 .u-layout-wrap-1 {
+  margin-top: 21px;
+  margin-bottom: 0;
+}
+
+.u-section-2 .u-layout-cell-1 {
+  min-height: 446px;
+}
+
+.u-section-2 .u-container-layout-1 {
+  padding: 30px 60px;
+}
+
+.u-section-2 .u-layout-cell-2 {
+  min-height: 446px;
+}
+
+.u-section-2 .u-container-layout-2 {
+  padding: 30px 60px;
+}
+
+.u-section-2 .u-layout-wrap-2 {
+  margin-top: -926px;
+  margin-bottom: 60px;
+}
+
+.u-section-2 .u-layout-cell-3 {
+  min-height: 512px;
+}
+
+.u-section-2 .u-container-layout-3 {
+  padding: 30px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 335px;
+  }
+
+  .u-section-2 .u-layout-cell-1 {
+    min-height: 368px;
+    background-position: 50% 50%;
+  }
+
+  .u-section-2 .u-layout-cell-2 {
+    min-height: 368px;
+  }
+
+  .u-section-2 .u-layout-cell-3 {
+    min-height: 422px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 153px;
+  }
+
+  .u-section-2 .u-layout-cell-1 {
+    min-height: 282px;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .u-section-2 .u-layout-cell-2 {
+    min-height: 282px;
+  }
+
+  .u-section-2 .u-container-layout-2 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .u-section-2 .u-layout-cell-3 {
+    min-height: 323px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 619px;
+  }
+
+  .u-section-2 .u-layout-cell-1 {
+    min-height: 423px;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-2 .u-layout-cell-2 {
+    min-height: 423px;
+  }
+
+  .u-section-2 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-2 .u-layout-wrap-2 {
+    margin-top: 20px;
+  }
+
+  .u-section-2 .u-layout-cell-3 {
+    min-height: 242px;
+  }
+
+  .u-section-2 .u-container-layout-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 553px;
+  }
+
+  .u-section-2 .u-layout-cell-1 {
+    min-height: 266px;
+  }
+
+  .u-section-2 .u-layout-cell-2 {
+    min-height: 266px;
+  }
+
+  .u-section-2 .u-layout-wrap-2 {
+    margin-top: -926px;
+  }
+
+  .u-section-2 .u-layout-cell-3 {
+    min-height: 152px;
+  }
+}
+
+
+select#detectLanguageDropdown,
+select#translateLanguageDropdown {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+select#detectLanguageDropdown:hover,
+select#translateLanguageDropdown:hover {
+    border-color: #478ac9; /* Change border color on hover */
+}
+
+/* Style for the table headers */
+th {
+    text-align: center;
+    padding: 10px;
+    background-color: #478ac9;
+    color: #fff;
+}
+
+/* Style for the table cells */
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+.container-fluid{
+  margin-top: 145px;
+}
+
+.check{
+  text-align: center;
+}
+
+.card {
+  width: 640px;
+  height: 480px;
+  margin: 0 auto;
+  background-color: #F8FBFE;
+  border-radius: 8px;
+  z-index: 1;
+ }
+ 
+ .tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+ }
+ 
+ .circle {
+  padding: 0 4px;
+ }
+ 
+ .box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+ }
+ 
+ .red {
+  background-color: #ff605c;
+ }
+ 
+ .yellow {
+  background-color: #ffbd44;
+ }
+ 
+ .green {
+  background-color: #00ca4e;
+ }
+ 
+
+ 
+
+ .open {
+  color: #0CC;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+  .card {
+      width: 640px;
+      height: 480px;
+      --color: rgba(252, 252, 252, 0.7); /* Set the alpha value to control transparency */
+      background-color: #f7f5f5;
+      background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+                        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+      background-size: 55px 55px;
+  }
+  
+
+  .wrapper {
+      text-align: center;
+      padding: 100px; 
+  }
+  
+  .description {
+      color: #555; /* Adjust the color as needed */
+      font-size: 18px;
+      margin-bottom: 20px;
+  }
+  
+ .btn-cssbuttons {
+  --btn-color: #275efe;
+  position: relative;
+  padding: 16px 32px;
+  font-family: Roboto, sans-serif;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 8px rgba(39, 94, 254, 0.32));
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+ }
+ 
+ .btn-cssbuttons::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: var(--btn-color);
+  border-radius: 24px;
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+ }
+ 
+ .btn-cssbuttons span,
+ .btn-cssbuttons span span {
+  display: inline-flex;
+  vertical-align: middle;
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+ }
+ 
+ .btn-cssbuttons span {
+  transition-delay: 0.05s;
+ }
+ 
+ .btn-cssbuttons span:first-child {
+  color :#ffffff;
+  padding-right: 7px;
+ }
+ 
+ .btn-cssbuttons span span {
+  margin-left: 8px;
+  transition-delay: 0.1s;
+ }
+ 
+ .btn-cssbuttons ul {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  transform: translateY(-50%);
+ }
+ 
+ .btn-cssbuttons ul li {
+  flex: 1;
+ }
+ 
+ .btn-cssbuttons ul li a {
+  display: inline-flex;
+  vertical-align: middle;
+  transform: translateY(55px);
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+ }
+ 
+ .btn-cssbuttons ul li a:hover {
+  opacity: 0.5;
+ }
+ 
+ .btn-cssbuttons:hover::before {
+  transform: scale(1.2);
+ }
+ 
+ .btn-cssbuttons:hover span,
+ .btn-cssbuttons:hover span span {
+  transform: translateY(-55px);
+ }
+ 
+ .btn-cssbuttons:hover ul li a {
+  transform: translateY(0);
+ }
+ 
+ .btn-cssbuttons:hover ul li:nth-child(1) a {
+  transition-delay: 0.15s;
+ }
+ 
+ .btn-cssbuttons:hover ul li:nth-child(2) a {
+  transition-delay: 0.2s;
+ }
+ 
+ .btn-cssbuttons:hover ul li:nth-child(3) a {
+  transition-delay: 0.25s;
+ }
+ .input-box {
+  margin: 0 auto; 
+ }
+  .logo-container .logocamera {
+    transition: transform 0.3s ease;
+  }
+  
+.output-container {
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 600px; /* Set a maximum width for the container if needed */
+}
+
+#translation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Add margin space at the top */
+}
+
+#translation-table th, #translation-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#translation-table th {
+    background-color: #f2f2f2;
+}
+
+#video_feed {
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Auto-adjust height to maintain aspect ratio */
+  display: block; /* Remove extra space below the image */
+  margin: 0 auto; /* Center the image */
+}
+
+
+  
+
+  
+
+  @media only screen and (max-width: 767px) {
+      .container-fluid {
+          margin-top: 80px; /* Sesuaikan margin-top sesuai kebutuhan pada perangkat kecil */
+      }
+  
+      .card {
+          width: 100%;
+          height: auto;
+      }
+  
+      .tools {
+          flex-direction: column; /* Tumpuk alat dalam satu kolom pada perangkat kecil */
+          padding: 5px; /* Sesuaikan padding sesuai kebutuhan */
+      }
+  
+      .btn-cssbuttons {
+          padding: 12px 24px; /* Sesuaikan padding sesuai kebutuhan */
+          font-size: 14px; /* Sesuaikan ukuran font sesuai kebutuhan */
+      }
+  
+      .open {
+          font-size: 30px; /* Sesuaikan ukuran font sesuai kebutuhan */
+      }
+  
+      .description {
+          font-size: 14px; /* Sesuaikan ukuran font sesuai kebutuhan */
+          margin-bottom: 10px; /* Sesuaikan margin-bottom sesuai kebutuhan */
+      }
+  
+      .input-box {
+          text-align: center; /* Pusatkan input box pada perangkat kecil */
+      }
+  }
+  

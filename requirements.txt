@@ -4,4 +4,3 @@ numpy==1.26.2
 easyocr==1.7.1
 opencv-python==4.8.1.78
 deep-translator==1.11.4
-#torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121 #installing_torch_for_CUDA_12.1

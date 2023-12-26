@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>IMAGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nicepage.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/IMAGE.css') }}" media="screen">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/nicepage.js') }}" defer=""></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+    <meta name="generator" content="Nicepage 6.2.1, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="IMAGE">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="{{ url_for('static', filename='intlTelInput/') }}"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-b5e0"><div class="u-container-style u-expanded-width u-gradient u-group u-shape-rectangle u-group-1">
+        <div class="u-container-layout u-container-layout-1">
+          <a href="{{ url_for('index') }}">
+            <img class="u-image u-image-default u-image-1" src="{{ url_for('static', filename='images/LOGO.png') }}" alt="" data-image-width="598" data-image-height="237">
+          </a>
+          <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+            <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+              <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+                <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+              </a>
+            </div>
+            <div class="u-nav-container">
+              <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{{ url_for('index') }}" style="padding: 10px 20px;">HOME</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{{ url_for('image') }}" style="padding: 10px 20px;">IMAGE</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{{ url_for('text') }}" style="padding: 10px 20px;">TEXT</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{{ url_for('about') }}" style="padding: 10px 20px;">ABOUT US</a>
+</li></ul>
+            </div>
+            <div class="u-nav-container-collapse">
+              <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                <div class="u-inner-container-layout u-sidenav-overflow">
+                  <div class="u-menu-close"></div>
+                  <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('index') }}">HOME</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('image') }}">IMAGE</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('text') }}">TEXT</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('about') }}">ABOUT US</a>
+</li></ul>
+                </div>
+              </div>
+              <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+            </div>
+          </nav>
+        </div>
+      </div></header>
+
+      <section class="u-clearfix u-section-1" id="sec-2ae3">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+              <div class="container-fluid">
+                <main class="tm-main">
+                  <div class="card">
+                    <div class="video-container">
+                        <img id="video_feed" src="{{ url_for('video_feed') }}">
+                    </div>
+                  </div>
+                
+                  <div class="output-container">
+                      <table id="translation-table">
+                          <thead>
+                              <tr>
+                                  <th>
+                                    <select id="detectLanguageDropdown">
+                                        <option value="id">Indonesian</option>
+                                        <option value="en">English</option>
+                                        <option value="af">Afrikaans</option>
+                                        <option value="sq">Albanian</option>
+                                        <option value="am">Amharic</option>
+                                        <option value="ar">Arabic</option>
+                                        <option value="hy">Armenian</option>
+                                        <option value="as">Assamese</option>
+                                        <option value="ay">Aymara</option>
+                                        <option value="az">Azerbaijani</option>
+                                        <option value="bm">Bambara</option>
+                                        <option value="eu">Basque</option>
+                                        <option value="be">Belarusian</option>
+                                        <option value="bn">Bengali</option>
+                                        <option value="bho">Bhojpuri</option>
+                                        <option value="bs">Bosnian</option>
+                                        <option value="bg">Bulgarian</option>
+                                        <option value="ca">Catalan</option>
+                                        <option value="ceb">Cebuano</option>
+                                        <option value="ny">Chichewa</option>
+                                        <option value="zh-CN">Chinese (Simplified)</option>
+                                        <option value="zh-TW">Chinese (Traditional)</option>
+                                        <option value="co">Corsican</option>
+                                        <option value="hr">Croatian</option>
+                                        <option value="cs">Czech</option>
+                                        <option value="da">Danish</option>
+                                        <option value="dv">Dhivehi</option>
+                                        <option value="doi">Dogri</option>
+                                        <option value="nl">Dutch</option>
+                                        <option value="eo">Esperanto</option>
+                                        <option value="et">Estonian</option>
+                                        <option value="ee">Ewe</option>
+                                        <option value="tl">Filipino</option>
+                                        <option value="fi">Finnish</option>
+                                        <option value="fr">French</option>
+                                        <option value="fy">Frisian</option>
+                                        <option value="gl">Galician</option>
+                                        <option value="ka">Georgian</option>
+                                        <option value="de">German</option>
+                                        <option value="el">Greek</option>
+                                        <option value="gn">Guarani</option>
+                                        <option value="gu">Gujarati</option>
+                                        <option value="ht">Haitian Creole</option>
+                                        <option value="ha">Hausa</option>
+                                        <option value="haw">Hawaiian</option>
+                                        <option value="iw">Hebrew</option>
+                                        <option value="hi">Hindi</option>
+                                        <option value="hmn">Hmong</option>
+                                        <option value="hu">Hungarian</option>
+                                        <option value="is">Icelandic</option>
+                                        <option value="ig">Igbo</option>
+                                        <option value="ilo">Ilocano</option>
+                                        <option value="ga">Irish</option>
+                                        <option value="it">Italian</option>
+                                        <option value="ja">Japanese</option>
+                                        <option value="jw">Javanese</option>
+                                        <option value="kn">Kannada</option>
+                                        <option value="kk">Kazakh</option>
+                                        <option value="km">Khmer</option>
+                                        <option value="rw">Kinyarwanda</option>
+                                        <option value="gom">Konkani</option>
+                                        <option value="ko">Korean</option>
+                                        <option value="kri">Krio</option>
+                                        <option value="ku">Kurdish (Kurmanji)</option>
+                                        <option value="ckb">Kurdish (Sorani)</option>
+                                        <option value="ky">Kyrgyz</option>
+                                        <option value="lo">Lao</option>
+                                        <option value="la">Latin</option>
+                                        <option value="lv">Latvian</option>
+                                        <option value="ln">Lingala</option>
+                                        <option value="lt">Lithuanian</option>
+                                        <option value="lg">Luganda</option>
+                                        <option value="lb">Luxembourgish</option>
+                                        <option value="mk">Macedonian</option>
+                                        <option value="mai">Maithili</option>
+                                        <option value="mg">Malagasy</option>
+                                        <option value="ms">Malay</option>
+                                        <option value="ml">Malayalam</option>
+                                        <option value="mt">Maltese</option>
+                                        <option value="mi">Maori</option>
+                                        <option value="mr">Marathi</option>
+                                        <option value="mni-Mtei">Meiteilon (Manipuri)</option>
+                                        <option value="lus">Mizo</option>
+                                        <option value="mn">Mongolian</option>
+                                        <option value="my">Myanmar</option>
+                                        <option value="ne">Nepali</option>
+                                        <option value="no">Norwegian</option>
+                                        <option value="or">Odia (Oriya)</option>
+                                        <option value="om">Oromo</option>
+                                        <option value="ps">Pashto</option>
+                                        <option value="fa">Persian</option>
+                                        <option value="pl">Polish</option>
+                                        <option value="pt">Portuguese</option>
+                                        <option value="pa">Punjabi</option>
+                                        <option value="qu">Quechua</option>
+                                        <option value="ro">Romanian</option>
+                                        <option value="ru">Russian</option>
+                                        <option value="sm">Samoan</option>
+                                        <option value="sa">Sanskrit</option>
+                                        <option value="gd">Scots Gaelic</option>
+                                        <option value="nso">Sepedi</option>
+                                        <option value="sr">Serbian</option>
+                                        <option value="st">Sesotho</option>
+                                        <option value="sn">Shona</option>
+                                        <option value="sd">Sindhi</option>
+                                        <option value="si">Sinhala</option>
+                                        <option value="sk">Slovak</option>
+                                        <option value="sl">Slovenian</option>
+                                        <option value="so">Somali</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="su">Sundanese</option>
+                                        <option value="sw">Swahili</option>
+                                        <option value="sv">Swedish</option>
+                                        <option value="tg">Tajik</option>
+                                        <option value="ta">Tamil</option>
+                                        <option value="tt">Tatar</option>
+                                        <option value="te">Telugu</option>
+                                        <option value="th">Thai</option>
+                                        <option value="ti">Tigrinya</option>
+                                        <option value="ts">Tsonga</option>
+                                        <option value="tr">Turkish</option>
+                                        <option value="tk">Turkmen</option>
+                                        <option value="ak">Twi</option>
+                                        <option value="uk">Ukrainian</option>
+                                        <option value="ur">Urdu</option>
+                                        <option value="ug">Uyghur</option>
+                                        <option value="uz">Uzbek</option>
+                                        <option value="vi">Vietnamese</option>
+                                        <option value="cy">Welsh</option>
+                                        <option value="xh">Xhosa</option>
+                                        <option value="yi">Yiddish</option>
+                                        <option value="yo">Yoruba</option>
+                                        <option value="zu">Zulu</option>
+                                    </select>
+                                  </th>
+                                  <th>
+                                    <select id="translateLanguageDropdown">
+                                        <option value="en">English</option>
+                                        <option value="id">Indonesian</option>
+                                        <option value="af">Afrikaans</option>
+                                        <option value="sq">Albanian</option>
+                                        <option value="am">Amharic</option>
+                                        <option value="ar">Arabic</option>
+                                        <option value="hy">Armenian</option>
+                                        <option value="as">Assamese</option>
+                                        <option value="ay">Aymara</option>
+                                        <option value="az">Azerbaijani</option>
+                                        <option value="bm">Bambara</option>
+                                        <option value="eu">Basque</option>
+                                        <option value="be">Belarusian</option>
+                                        <option value="bn">Bengali</option>
+                                        <option value="bho">Bhojpuri</option>
+                                        <option value="bs">Bosnian</option>
+                                        <option value="bg">Bulgarian</option>
+                                        <option value="ca">Catalan</option>
+                                        <option value="ceb">Cebuano</option>
+                                        <option value="ny">Chichewa</option>
+                                        <option value="zh-CN">Chinese (Simplified)</option>
+                                        <option value="zh-TW">Chinese (Traditional)</option>
+                                        <option value="co">Corsican</option>
+                                        <option value="hr">Croatian</option>
+                                        <option value="cs">Czech</option>
+                                        <option value="da">Danish</option>
+                                        <option value="dv">Dhivehi</option>
+                                        <option value="doi">Dogri</option>
+                                        <option value="nl">Dutch</option>
+                                        <option value="eo">Esperanto</option>
+                                        <option value="et">Estonian</option>
+                                        <option value="ee">Ewe</option>
+                                        <option value="tl">Filipino</option>
+                                        <option value="fi">Finnish</option>
+                                        <option value="fr">French</option>
+                                        <option value="fy">Frisian</option>
+                                        <option value="gl">Galician</option>
+                                        <option value="ka">Georgian</option>
+                                        <option value="de">German</option>
+                                        <option value="el">Greek</option>
+                                        <option value="gn">Guarani</option>
+                                        <option value="gu">Gujarati</option>
+                                        <option value="ht">Haitian Creole</option>
+                                        <option value="ha">Hausa</option>
+                                        <option value="haw">Hawaiian</option>
+                                        <option value="iw">Hebrew</option>
+                                        <option value="hi">Hindi</option>
+                                        <option value="hmn">Hmong</option>
+                                        <option value="hu">Hungarian</option>
+                                        <option value="is">Icelandic</option>
+                                        <option value="ig">Igbo</option>
+                                        <option value="ilo">Ilocano</option>
+                                        <option value="ga">Irish</option>
+                                        <option value="it">Italian</option>
+                                        <option value="ja">Japanese</option>
+                                        <option value="jw">Javanese</option>
+                                        <option value="kn">Kannada</option>
+                                        <option value="kk">Kazakh</option>
+                                        <option value="km">Khmer</option>
+                                        <option value="rw">Kinyarwanda</option>
+                                        <option value="gom">Konkani</option>
+                                        <option value="ko">Korean</option>
+                                        <option value="kri">Krio</option>
+                                        <option value="ku">Kurdish (Kurmanji)</option>
+                                        <option value="ckb">Kurdish (Sorani)</option>
+                                        <option value="ky">Kyrgyz</option>
+                                        <option value="lo">Lao</option>
+                                        <option value="la">Latin</option>
+                                        <option value="lv">Latvian</option>
+                                        <option value="ln">Lingala</option>
+                                        <option value="lt">Lithuanian</option>
+                                        <option value="lg">Luganda</option>
+                                        <option value="lb">Luxembourgish</option>
+                                        <option value="mk">Macedonian</option>
+                                        <option value="mai">Maithili</option>
+                                        <option value="mg">Malagasy</option>
+                                        <option value="ms">Malay</option>
+                                        <option value="ml">Malayalam</option>
+                                        <option value="mt">Maltese</option>
+                                        <option value="mi">Maori</option>
+                                        <option value="mr">Marathi</option>
+                                        <option value="mni-Mtei">Meiteilon (Manipuri)</option>
+                                        <option value="lus">Mizo</option>
+                                        <option value="mn">Mongolian</option>
+                                        <option value="my">Myanmar</option>
+                                        <option value="ne">Nepali</option>
+                                        <option value="no">Norwegian</option>
+                                        <option value="or">Odia (Oriya)</option>
+                                        <option value="om">Oromo</option>
+                                        <option value="ps">Pashto</option>
+                                        <option value="fa">Persian</option>
+                                        <option value="pl">Polish</option>
+                                        <option value="pt">Portuguese</option>
+                                        <option value="pa">Punjabi</option>
+                                        <option value="qu">Quechua</option>
+                                        <option value="ro">Romanian</option>
+                                        <option value="ru">Russian</option>
+                                        <option value="sm">Samoan</option>
+                                        <option value="sa">Sanskrit</option>
+                                        <option value="gd">Scots Gaelic</option>
+                                        <option value="nso">Sepedi</option>
+                                        <option value="sr">Serbian</option>
+                                        <option value="st">Sesotho</option>
+                                        <option value="sn">Shona</option>
+                                        <option value="sd">Sindhi</option>
+                                        <option value="si">Sinhala</option>
+                                        <option value="sk">Slovak</option>
+                                        <option value="sl">Slovenian</option>
+                                        <option value="so">Somali</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="su">Sundanese</option>
+                                        <option value="sw">Swahili</option>
+                                        <option value="sv">Swedish</option>
+                                        <option value="tg">Tajik</option>
+                                        <option value="ta">Tamil</option>
+                                        <option value="tt">Tatar</option>
+                                        <option value="te">Telugu</option>
+                                        <option value="th">Thai</option>
+                                        <option value="ti">Tigrinya</option>
+                                        <option value="ts">Tsonga</option>
+                                        <option value="tr">Turkish</option>
+                                        <option value="tk">Turkmen</option>
+                                        <option value="ak">Twi</option>
+                                        <option value="uk">Ukrainian</option>
+                                        <option value="ur">Urdu</option>
+                                        <option value="ug">Uyghur</option>
+                                        <option value="uz">Uzbek</option>
+                                        <option value="vi">Vietnamese</option>
+                                        <option value="cy">Welsh</option>
+                                        <option value="xh">Xhosa</option>
+                                        <option value="yi">Yiddish</option>
+                                        <option value="yo">Yoruba</option>
+                                        <option value="zu">Zulu</option>
+                                    </select>
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><div id="text_output"></div></td>
+                                  <td><div id="translation_output"></div></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </main>
+            
+                
+                <script>
+                    // Function to update the text content
+                    function updateTextContent(text) {
+                        // Split the text into an array of lines
+                        var lines = text.split('\n');
+                    
+                        // Clear the existing content
+                        $("#text_output").empty();
+                    
+                        // Create a new <div> for each line and append it to the parent <div>
+                        lines.forEach(function(line) {
+                            $("#text_output").append("<div>" + line + "</div>");
+                        });
+                    }
+                
+                    // Function to update the translation content
+                    function updateTranslationContent(text) {
+                        // Split the translation text into an array of lines
+                        var lines = text.split('\n');
+                    
+                        // Clear the existing content
+                        $("#translation_output").empty();
+                    
+                        // Create a new <div> for each line and append it to the parent <div>
+                        lines.forEach(function(line) {
+                            $("#translation_output").append("<div>" + line + "</div>");
+                        });
+                    }
+            
+                    // Function to update the image source
+                    function updateImageSource() {
+                        $("#video_feed").attr("src", "{{ url_for('video_feed') }}?" + new Date().getTime());
+                    }
+                
+                    // Function to periodically update the text content, image source, and translation content
+                    function updateContent() {
+                        $.ajax({
+                            url: "/get_text",  // Flask route to get the detected text
+                            type: "GET",
+                            success: function (data) {
+                                var detectLanguage = $("#detectLanguageDropdown").val();  // Get the selected source language
+                                var translateLanguage = $("#translateLanguageDropdown").val();  // Get the selected target language
+                                
+                                // Update the text content
+                                updateTextContent(data);
+                                
+                                // Update the image source
+                                updateImageSource();
+                                
+                                // Translate the text and update the translation content
+                                $.ajax({
+                                    url: "/translate_text",  // Flask route to translate text
+                                    type: "POST",
+                                    data: { text: data, source: detectLanguage, target: translateLanguage },  // Pass language values
+                                    success: function (translation) {
+                                        updateTranslationContent(translation);  // Update the translation content
+                                    },
+                                    error: function () {
+                                        // Handle error if translation fails
+                                    }
+                                });
+                                
+                                setTimeout(updateContent, 1000);  // Update every 1000 milliseconds (1 second)
+                            },
+                            error: function () {
+                                setTimeout(updateContent, 1000);
+                            }
+                        });
+                    }
+
+                    // Start updating content when the page is loaded
+                    $(document).ready(function () {
+                        updateContent();
+                    });
+                </script>
+              </div>
+          </div>
+      </section>
+
+    <section class="u-clearfix u-section-2" id="sec-24ce">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-valign-middle u-container-layout-1" src=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-2">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-size-60">
+                <div class="u-layout-col">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-7887"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Algoritma Pemrograman II - Kelompok 9<br>Airlangga University&nbsp; - 2023
+        </p>
+      </div></footer>
+
+
+      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/templatemo-script.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/nicepage.js') }}"></script>
+  
+</body></html>

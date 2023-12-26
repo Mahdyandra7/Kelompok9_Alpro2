@@ -45,7 +45,19 @@ def gen_frames():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('HOME.html')
+
+@app.route('/image')
+def image():
+    return render_template('IMAGE.html')
+
+@app.route('/text')
+def text():
+    return render_template('TEXT.html')
+
+@app.route('/about')
+def about():
+    return render_template('ABOUT-US.html')
 
 @app.route('/video_feed')
 def video_feed():
@@ -74,7 +86,9 @@ def get_text():
 def translate_text():
     try:
         text_to_translate = request.form['text']
-        translated_text = GoogleTranslator(source='id', target='en').translate(text_to_translate)
+        source_text = request.form['source']
+        target_text = request.form['target']
+        translated_text = GoogleTranslator(source=source_text, target=target_text).translate(text_to_translate)
         return jsonify(translated_text)
     except Exception as e:
         print(f"Error translating text: {str(e)}")
